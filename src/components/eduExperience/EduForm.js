@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 
-// /A section to add your educational experience
-//(school name, title of study, date of study)
-
-class EduExperience extends Component {
+class EduForm extends Component {
   render() {
     return (
       <>
@@ -16,6 +13,7 @@ class EduExperience extends Component {
           <input id="startDateEdu" type="date"></input>
           <label htmlFor="endDateEdu">Completion of study</label>
           <input id="endDateEdu" type="date"></input>
+          <button type="button">Submit</button>
         </form>
         <br></br>
       </>
@@ -23,4 +21,4 @@ class EduExperience extends Component {
   }
 }
 
-export default EduExperience;
+export default EduForm;

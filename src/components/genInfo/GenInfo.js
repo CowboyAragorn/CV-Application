@@ -13,6 +13,7 @@ class GenInfo extends Component {
           <input id="email" type="text"></input>
           <label htmlFor="phone">Phone</label>
           <input id="phone" type="text"></input>
+          <button type="button">Submit</button>
         </form>
         <br></br>
       </>
