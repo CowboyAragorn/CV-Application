@@ -1,10 +1,18 @@
 import React, { Component } from "react";
 import "./App.css";
-import GenInfo from "./GenInfo";
+import EduExperience from "./components/EduExperience";
+import GenInfo from "./components/GenInfo";
+import JobExperience from "./components/JobExperience";
 
 class App extends Component {
   render() {
-    return <GenInfo />;
+    return (
+      <>
+        <GenInfo />
+        <EduExperience />
+        <JobExperience />
+      </>
+    );
   }
 }
 
