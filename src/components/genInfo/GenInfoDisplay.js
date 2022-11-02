@@ -7,8 +7,9 @@ class GenInfoDisplay extends Component {
         {this.props.genInfo.map((experience) => {
           return (
             <>
-              <div id="firstNameDisp">{experience.firstName}</div>
-              <div id="lastNameDisp">{experience.lastName}</div>
+              <div id="nameDisp">
+                {experience.firstName + experience.lastName}
+              </div>
               <div id="emailDisp">{experience.email}</div>
               <div id="phoneDisp">{experience.phoneNumber}</div>
               <button>Edit Personal Info</button>

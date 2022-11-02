@@ -22,10 +22,8 @@ class EduExperience extends Component {
   }
 
   handleClick() {
-    console.log(this.state.schoolName);
     this.setState(
       {
-        //schoolName: [...this.state.schoolName, [this.state.schoolNameVal]],
         eduExp: [
           ...this.state.eduExp,
           {
