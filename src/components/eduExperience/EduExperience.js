@@ -11,85 +11,56 @@ class EduExperience extends Component {
     super();
     this.state = {
       eduExp: [],
-      schoolNameVal: " ",
-      fosVal: " ",
-      startVal: " ",
-      endVal: " ",
+      count: 0,
+      schoolName: "",
+      fieldOfStudy: "",
+      startDate: "",
+      endDate: "",
     };
 
     this.handleChange = this.handleChange.bind(this);
-    this.handleClick = this.handleClick.bind(this);
+    this.addEduExperience = this.addEduExperience.bind(this);
+    this.removeExp = this.removeExp.bind(this);
   }
 
-  handleClick() {
-    this.setState(
-      {
-        eduExp: [
-          ...this.state.eduExp,
-          {
-            schoolName: this.state.schoolNameVal,
-            fieldOfStudy: this.state.fosVal,
-            startDate: this.state.startVal,
-            endDate: this.state.endVal,
-          },
-        ],
-        schoolNameVal: " ",
-        fosVal: " ",
-        startVal: " ",
-        endVal: " ",
-      },
-      () => {
-        console.log(this.state.eduExp);
-      }
-    );
+  addEduExperience() {
+    this.setState({
+      eduExp: [
+        ...this.state.eduExp,
+        {
+          count: this.state.count,
+          schoolName: this.state.schoolName,
+          fieldOfStudy: null,
+          startDate: null,
+          endDate: null,
+        },
+      ],
+      count: this.state.count + 1,
+    });
+  }
+  removeExp(index) {
+    console.log(index);
+    let eduExpCopy = [...this.state.eduExp];
+    console.log(eduExpCopy);
+    eduExpCopy.splice(index, 1);
+    console.log(eduExpCopy);
+    this.setState({ eduExp: eduExpCopy });
   }
 
   handleChange(e) {
+    console.log(e.target.name);
+    console.log(e.target.value);
     this.setState({ [e.target.name]: e.target.value });
     console.log(e.target.value);
   }
   render() {
     return (
       <>
-        <form>
-          <label htmlFor="schoolName">School Name</label>
-          <input
-            id="schoolName"
-            name="schoolNameVal"
-            type="text"
-            onChange={this.handleChange}
-            value={this.state.schoolNameVal}
-          ></input>
-          <label htmlFor="fieldOfStudy">Field of Study</label>
-          <input
-            id="fieldOfStudy"
-            name="fosVal"
-            onChange={this.handleChange}
-            value={this.state.fosVal}
-            type="text"
-          ></input>
-          <label htmlFor="startDateEdu">Start of study</label>
-          <input
-            id="startDateEdu"
-            type="date"
-            name="startVal"
-            onChange={this.handleChange}
-            value={this.state.startVal}
-          ></input>
-          <label htmlFor="endDateEdu">Completion of study</label>
-          <input
-            id="endDateEdu"
-            type="date"
-            name="endVal"
-            onChange={this.handleChange}
-            value={this.state.endVal}
-          ></input>
-          <button type="button" onClick={this.handleClick}>
-            Submit
-          </button>
-        </form>
+        <EduDisplay eduExp={this.state.eduExp} onClick={this.removeExp} />
+        <button type="button" onClick={this.addEduExperience}>
+          Add Education Experience
+        </button>
         <br></br>
-        <EduDisplay eduExp={this.state.eduExp} />
       </>
     );
   }

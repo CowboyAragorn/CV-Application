@@ -21,6 +21,7 @@ class JobExperience extends Component {
     this.addNewJob = this.addNewJob.bind(this);
     this.editJobOnClick = this.editJobOnClick.bind(this);
     this.updateJob = this.updateJob.bind(this);
+    this.addAnotherJob = this.addAnotherJob.bind(this);
   }
 
   addNewJob() {
@@ -70,9 +71,6 @@ class JobExperience extends Component {
       return job.key === this.state.editKey;
     });
 
-    console.log("job to edit");
-    console.log(jobToEdit);
-
     jobToEdit.companyName = this.state.companyName;
     jobToEdit.mainTasks = this.state.mainTasks;
     jobToEdit.startDate = this.state.startDate;
@@ -90,6 +88,10 @@ class JobExperience extends Component {
     });
   }
 
+  addAnotherJob() {
+    this.setState({ displayInputs: true });
+  }
+
   handleChange(e) {
     this.setState({ [e.target.name]: e.target.value });
     console.log(e.target.value);
@@ -98,6 +100,11 @@ class JobExperience extends Component {
   render() {
     return (
       <>
+        <JobExpDisplay
+          jobExp={this.state.jobExp}
+          selected={this.state.selected}
+          onClick={this.editJobOnClick}
+        />
         {
           //display the inputs if no displayInputs is occuring
         }
@@ -148,12 +155,14 @@ class JobExperience extends Component {
               </button>
             )}
           </form>
-        ) : null}
-        <JobExpDisplay
-          jobExp={this.state.jobExp}
-          selected={this.state.selected}
-          onClick={this.editJobOnClick}
-        />
+        ) : (
+          <>
+            <br></br>
+            <button type="button" onClick={this.addAnotherJob}>
+              Add More Experience
+            </button>
+          </>
+        )}
       </>
     );
   }
