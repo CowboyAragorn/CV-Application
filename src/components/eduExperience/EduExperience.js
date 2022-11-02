@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import EduDisplay from "./EduDisplay";
 //import EduDisplay from "./EduDisplay";
 //import EduForm from "./EduForm";
 // /A section to add your educational experience
@@ -31,9 +32,13 @@ class EduExperience extends Component {
             schoolName: this.state.schoolNameVal,
             fieldOfStudy: this.state.fosVal,
             startDate: this.state.startVal,
-            endVal: this.state.endVal,
+            endDate: this.state.endVal,
           },
         ],
+        schoolNameVal: " ",
+        fosVal: " ",
+        startVal: " ",
+        endVal: " ",
       },
       () => {
         console.log(this.state.eduExp);
@@ -86,6 +91,7 @@ class EduExperience extends Component {
           </button>
         </form>
         <br></br>
+        <EduDisplay eduExp={this.state.eduExp} />
       </>
     );
   }

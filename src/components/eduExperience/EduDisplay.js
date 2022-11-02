@@ -4,10 +4,18 @@ class EduDisplay extends Component {
   render() {
     return (
       <>
-        <div id="schoolNameDisp">{this.props.schoolName}</div>
-        <div id="fieldOfStudyDisplay"></div>
-        <div id="startEduDisp"></div>
-        <div id="endEduDisp"></div>
+        {this.props.eduExp.map((experience) => {
+          return (
+            <>
+              <div id="schoolNameDisp">{experience.schoolName}</div>
+              <div id="fieldOfStudyDisplay">{experience.fieldOfStudy}</div>
+              <div id="startEduDisp">{experience.startDate}</div>
+              <div id="endEduDisp">{experience.endDate}</div>
+              <button>Edit Education</button>
+              <button>Edit Education</button>
+            </>
+          );
+        })}
       </>
     );
   }
