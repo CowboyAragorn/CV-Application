@@ -11,8 +11,21 @@ class JobExpDisplay extends Component {
               <div id="mainTasksDisp">{experience.mainTasks}</div>
               <div id="startDateDisp">{experience.startDate}</div>
               <div id="endDateDisp">{experience.endDate}</div>
-              <button>Edit Job Experience</button>
-              <button>Delete</button>
+              <button
+                type="button"
+                onClick={() => {
+                  this.props.onClick(
+                    experience.companyName,
+                    experience.mainTasks,
+                    experience.startDate,
+                    experience.endDate,
+                    experience.key
+                  );
+                }}
+              >
+                Edit Job Experience
+              </button>
+              <button type="button">Delete</button>
             </>
           );
         })}

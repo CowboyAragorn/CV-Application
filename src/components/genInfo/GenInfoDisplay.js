@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 
 class GenInfoDisplay extends Component {
+  constructor() {
+    super();
+  }
+
   render() {
     return (
       <>
@@ -8,7 +12,7 @@ class GenInfoDisplay extends Component {
           return (
             <>
               <div id="nameDisp">
-                {experience.firstName + experience.lastName}
+                {experience.firstName + " " + experience.lastName}
               </div>
               <div id="emailDisp">{experience.email}</div>
               <div id="phoneDisp">{experience.phoneNumber}</div>
