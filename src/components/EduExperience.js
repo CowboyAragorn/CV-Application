@@ -16,7 +16,6 @@ class EduExperience extends Component {
     this.removeExp = this.removeExp.bind(this);
   }
 
-  //add a way to iterate through and add count
   createUI() {
     return this.state.values.map((el, i) => (
       <div key={i}>
@@ -62,8 +61,8 @@ class EduExperience extends Component {
     let values = [...this.state.values];
     values[i][event.target.id] = event.target.value;
     this.setState({ values });
-    console.log(this.state.values);
   }
+
   addNewInputs() {
     this.setState((prevState) => ({
       values: [
@@ -72,6 +71,7 @@ class EduExperience extends Component {
       ],
     }));
   }
+
   removeExp(i) {
     let values = [...this.state.values];
     values.splice(i, 1);
@@ -81,6 +81,7 @@ class EduExperience extends Component {
   render() {
     return (
       <>
+        <h2>Education Experience</h2>
         {this.createUI()}
         <button type="button" onClick={this.addNewInputs}>
           Add Education Experience
