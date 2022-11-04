@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import EduDisplay from "./EduDisplay";
-//import EduDisplay from "./EduDisplay";
-//import EduForm from "./EduForm";
+
 // /A section to add your educational experience
 //(school name, title of study, date of study)
 
@@ -10,53 +8,78 @@ class EduExperience extends Component {
   constructor() {
     super();
     this.state = {
-      eduExp: [],
-      count: 0,
-      schoolName: "",
-      fieldOfStudy: "",
-      startDate: "",
-      endDate: "",
+      values: [],
     };
 
-    this.handleChange = this.handleChange.bind(this);
+    //this.handleChange = this.handleChange.bind(this);
     this.addEduExperience = this.addEduExperience.bind(this);
     this.removeExp = this.removeExp.bind(this);
   }
 
-  addEduExperience() {
-    this.setState({
-      eduExp: [
-        ...this.state.eduExp,
-        {
-          count: this.state.count,
-          schoolName: this.state.schoolName,
-          fieldOfStudy: null,
-          startDate: null,
-          endDate: null,
-        },
-      ],
-      count: this.state.count + 1,
-    });
-  }
-  removeExp(index) {
-    console.log(index);
-    let eduExpCopy = [...this.state.eduExp];
-    console.log(eduExpCopy);
-    eduExpCopy.splice(index, 1);
-    console.log(eduExpCopy);
-    this.setState({ eduExp: eduExpCopy });
+  //add a way to iterate through and add count
+  createUI() {
+    return this.state.values.map((el, i, el1) => (
+      <div key={i}>
+        <label htmlFor="schoolName">School Name</label>
+        <input
+          id="schoolName"
+          type="text"
+          value={el || ""}
+          onChange={this.handleChange.bind(this, i)}
+        ></input>
+        <label htmlFor="fieldOfStudy">Field of Study</label>
+        <input
+          id="fieldOfStudy"
+          onChange={this.handleChange.bind(this, i)}
+          value={el1 || ""}
+          type="text"
+        ></input>
+        <label htmlFor="startDateEdu">Start of study</label>
+        <input
+          id="startDateEdu"
+          type="date"
+          /*
+                name="startVal"
+                onChange={this.handleChange}
+                value={this.state.startVal}
+                */
+        ></input>
+        <label htmlFor="endDateEdu">Completion of study</label>
+        <input
+          id="endDateEdu"
+          type="date"
+          /*
+                name="endVal"
+                onChange={this.handleChange}
+                value={this.state.endVal}
+                */
+        ></input>
+        <button type="button" onClick={this.removeExp.bind(this, i)}>
+          Delete
+        </button>
+        <br></br>
+      </div>
+    ));
   }
 
-  handleChange(e) {
-    console.log(e.target.name);
-    console.log(e.target.value);
-    this.setState({ [e.target.name]: e.target.value });
-    console.log(e.target.value);
+  addEduExperience() {
+    this.setState((prevState) => ({ values: [...prevState.values, ""] }));
+  }
+  removeExp(i) {
+    let values = [...this.state.values];
+    values.splice(i, 1);
+    this.setState({ values });
+  }
+
+  handleChange(i, event) {
+    let values = [...this.state.values];
+    values[i] = event.target.value;
+    this.setState({ values });
   }
   render() {
     return (
       <>
-        <EduDisplay eduExp={this.state.eduExp} onClick={this.removeExp} />
+        {this.createUI()}
         <button type="button" onClick={this.addEduExperience}>
           Add Education Experience
         </button>
