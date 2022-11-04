@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./eduExperience.module.css";
 
 // /A section to add your educational experience
 //(school name, title of study, date of study)
@@ -18,40 +19,55 @@ class EduExperience extends Component {
 
   createUI() {
     return this.state.values.map((el, i) => (
-      <div key={i}>
-        <label htmlFor="schoolName">School Name</label>
-        <input
-          id="schoolName"
-          type="text"
-          value={el.schoolName || ""}
-          onChange={this.handleChange.bind(this, i)}
-        ></input>
-        <label htmlFor="fieldOfStudy">Field of Study</label>
-        <input
-          id="fieldOfStudy"
-          onChange={this.handleChange.bind(this, i)}
-          value={el.fieldOfStudy || ""}
-          type="text"
-        ></input>
-        <label htmlFor="startDateEdu">Start of study</label>
-        <input
-          id="startDate"
-          type="date"
-          name="startVal"
-          onChange={this.handleChange.bind(this, i)}
-          value={el.startDate || ""}
-        ></input>
-        <label htmlFor="endDateEdu">Completion of study</label>
-        <input
-          id="endDate"
-          type="date"
-          name="endVal"
-          onChange={this.handleChange.bind(this, i)}
-          value={el.endDate || ""}
-        ></input>
-        <button type="button" onClick={this.removeExp.bind(this, i)}>
-          Delete
-        </button>
+      <div key={i} className="eduContainer">
+        <div className="inputContainer">
+          <label htmlFor="schoolName">School Name </label>
+          <input
+            name="schoolName"
+            id="schoolName"
+            type="text"
+            value={el.schoolName || ""}
+            onChange={this.handleChange.bind(this, i)}
+          ></input>
+        </div>
+        <div className="inputContainer">
+          <label htmlFor="fieldOfStudy">Field of Study</label>
+          <input
+            id="fieldOfStudy"
+            onChange={this.handleChange.bind(this, i)}
+            value={el.fieldOfStudy || ""}
+            type="text"
+          ></input>
+        </div>
+        <div className="inputContainer">
+          <label htmlFor="startDate">Start of study</label>
+          <input
+            id="startDate"
+            type="date"
+            name="startVal"
+            onChange={this.handleChange.bind(this, i)}
+            value={el.startDate || ""}
+          ></input>
+        </div>
+        <div className="inputContainer">
+          <label htmlFor="endDate">Completion of study</label>
+          <input
+            id="endDate"
+            type="date"
+            name="endVal"
+            onChange={this.handleChange.bind(this, i)}
+            value={el.endDate || ""}
+          ></input>
+        </div>
+        <div className="btnWrapper">
+          <button
+            type="button"
+            className="deleteBtn"
+            onClick={this.removeExp.bind(this, i)}
+          >
+            Delete
+          </button>
+        </div>
         <br></br>
       </div>
     ));
