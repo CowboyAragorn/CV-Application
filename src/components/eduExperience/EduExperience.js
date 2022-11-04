@@ -12,47 +12,43 @@ class EduExperience extends Component {
     };
 
     //this.handleChange = this.handleChange.bind(this);
-    this.addEduExperience = this.addEduExperience.bind(this);
+    this.addNewInputs = this.addNewInputs.bind(this);
     this.removeExp = this.removeExp.bind(this);
   }
 
   //add a way to iterate through and add count
   createUI() {
-    return this.state.values.map((el, i, el1) => (
+    return this.state.values.map((el, i) => (
       <div key={i}>
         <label htmlFor="schoolName">School Name</label>
         <input
           id="schoolName"
           type="text"
-          value={el || ""}
+          value={el.schoolName || ""}
           onChange={this.handleChange.bind(this, i)}
         ></input>
         <label htmlFor="fieldOfStudy">Field of Study</label>
         <input
           id="fieldOfStudy"
           onChange={this.handleChange.bind(this, i)}
-          value={el1 || ""}
+          value={el.fieldOfStudy || ""}
           type="text"
         ></input>
         <label htmlFor="startDateEdu">Start of study</label>
         <input
-          id="startDateEdu"
+          id="startDate"
           type="date"
-          /*
-                name="startVal"
-                onChange={this.handleChange}
-                value={this.state.startVal}
-                */
+          name="startVal"
+          onChange={this.handleChange.bind(this, i)}
+          value={el.startDate || ""}
         ></input>
         <label htmlFor="endDateEdu">Completion of study</label>
         <input
-          id="endDateEdu"
+          id="endDate"
           type="date"
-          /*
-                name="endVal"
-                onChange={this.handleChange}
-                value={this.state.endVal}
-                */
+          name="endVal"
+          onChange={this.handleChange.bind(this, i)}
+          value={el.endDate || ""}
         ></input>
         <button type="button" onClick={this.removeExp.bind(this, i)}>
           Delete
@@ -62,8 +58,19 @@ class EduExperience extends Component {
     ));
   }
 
-  addEduExperience() {
-    this.setState((prevState) => ({ values: [...prevState.values, ""] }));
+  handleChange(i, event) {
+    let values = [...this.state.values];
+    values[i][event.target.id] = event.target.value;
+    this.setState({ values });
+    console.log(this.state.values);
+  }
+  addNewInputs() {
+    this.setState((prevState) => ({
+      values: [
+        ...prevState.values,
+        { schoolName: "", fieldOfStudy: "", startDate: "", endDate: "" },
+      ],
+    }));
   }
   removeExp(i) {
     let values = [...this.state.values];
@@ -71,16 +78,11 @@ class EduExperience extends Component {
     this.setState({ values });
   }
 
-  handleChange(i, event) {
-    let values = [...this.state.values];
-    values[i] = event.target.value;
-    this.setState({ values });
-  }
   render() {
     return (
       <>
         {this.createUI()}
-        <button type="button" onClick={this.addEduExperience}>
+        <button type="button" onClick={this.addNewInputs}>
           Add Education Experience
         </button>
         <br></br>
