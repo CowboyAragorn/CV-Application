@@ -1,5 +1,15 @@
 :root {
   font-family: sans-serif;
+  background-color: white;
+  --cadet-blue: #5ab1bb;
+  --pistachio: #a5c882;
+  --deepSpace: #4e6766;
+  --kombuGreen: #313715;
+}
+#pageContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-left: 30px;
 }
 #pageHeader {
   font-size: 2.8rem;
@@ -15,12 +25,12 @@
   grid-template-rows: 1fr 1fr 1fr;
   column-gap: 25px;
   row-gap: 10px;
-  background-color: wheat;
+  background-color: var(--cadet-blue);
   width: 600px;
-  padding: 10px;
-  padding-bottom: 3px;
-  margin-bottom: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
   font-size: 1.2rem;
+  border-radius: 15px;
 }
 .personalInfoContainer {
   grid-template-rows: 1fr 1fr 5px;
@@ -83,24 +93,32 @@
   border-radius: 15px;
   border: none;
   width: 260px;
-  background-color: lightgreen;
+  background-color: var(--pistachio);
   font-weight: bold;
   padding: 15px;
   font-size: 1.1em;
 }
 
 .addMoreBtn:hover {
-  background-color: green;
+  background-color: #77915d;
   color: white;
   cursor: pointer;
 }
 
 #submitBtn {
-  background-color: lightblue;
+  background-color: #578aff;
+  color: black;
+  font-weight: bold;
   font-size: 1.1rem;
+  margin-bottom: 30px;
 }
 #submitBtn:hover {
-  background-color: blue;
+  background-color: #2564f7;
   color: white;
   cursor: pointer;
+}
+
+#interviewSVG {
+  position: sticky;
+  top: 0;
 }
