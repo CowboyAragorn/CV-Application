@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "./eduExperience.module.css";
 
 // /A section to add your educational experience
 //(school name, title of study, date of study)
@@ -23,6 +22,7 @@ class EduExperience extends Component {
         <div className="inputContainer">
           <label htmlFor="schoolName">School Name </label>
           <input
+            className="input"
             name="schoolName"
             id="schoolName"
             type="text"
@@ -33,6 +33,7 @@ class EduExperience extends Component {
         <div className="inputContainer">
           <label htmlFor="fieldOfStudy">Field of Study</label>
           <input
+            className="input"
             id="fieldOfStudy"
             onChange={this.handleChange.bind(this, i)}
             value={el.fieldOfStudy || ""}
@@ -42,6 +43,7 @@ class EduExperience extends Component {
         <div className="inputContainer">
           <label htmlFor="startDate">Start of study</label>
           <input
+            className="input"
             id="startDate"
             type="date"
             name="startVal"
@@ -52,6 +54,7 @@ class EduExperience extends Component {
         <div className="inputContainer">
           <label htmlFor="endDate">Completion of study</label>
           <input
+            className="input"
             id="endDate"
             type="date"
             name="endVal"

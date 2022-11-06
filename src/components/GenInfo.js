@@ -19,35 +19,47 @@ class GenInfo extends Component {
 
   createUI() {
     return (
-      <div key={"personalInfo"}>
-        <label htmlFor="firstName">First Name</label>
-        <input
-          id="firstName"
-          type="text"
-          value={this.firstName}
-          onChange={this.handleChange}
-        ></input>
-        <label htmlFor="lastName">Last Name</label>
-        <input
-          id="lastName"
-          type="text"
-          value={this.lastName}
-          onChange={this.handleChange}
-        ></input>
-        <label htmlFor="email">Email</label>
-        <input
-          id="email"
-          type="text"
-          value={this.email}
-          onChange={this.handleChange}
-        ></input>
-        <label htmlFor="phone">Phone Number</label>
-        <input
-          id="phone"
-          type="text"
-          value={this.phone}
-          onChange={this.handleChange}
-        ></input>
+      <div key={"personalInfo"} className="personalInfoContainer">
+        <div className="inputContainer">
+          <label htmlFor="firstName">First Name</label>
+          <input
+            className="input"
+            id="firstName"
+            type="text"
+            value={this.firstName}
+            onChange={this.handleChange}
+          ></input>
+        </div>
+        <div className="inputContainer">
+          <label htmlFor="lastName">Last Name</label>
+          <input
+            className="input"
+            id="lastName"
+            type="text"
+            value={this.lastName}
+            onChange={this.handleChange}
+          ></input>
+        </div>
+        <div className="inputContainer">
+          <label htmlFor="email">Email</label>
+          <input
+            className="input"
+            id="email"
+            type="text"
+            value={this.email}
+            onChange={this.handleChange}
+          ></input>
+        </div>
+        <div className="inputContainer">
+          <label htmlFor="phone">Phone Number</label>
+          <input
+            className="input"
+            id="phone"
+            type="text"
+            value={this.phone}
+            onChange={this.handleChange}
+          ></input>
+        </div>
       </div>
     );
   }
@@ -61,7 +73,6 @@ class GenInfo extends Component {
       <>
         <h2>Personal Information</h2>
         {this.createUI()}
-        <br></br>
       </>
     );
   }

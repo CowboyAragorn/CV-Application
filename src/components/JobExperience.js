@@ -22,6 +22,7 @@ class JobExperience extends Component {
         <div className="inputContainer">
           <label htmlFor="companyName">Company Name</label>
           <input
+            className="input"
             id="companyName"
             type="text"
             value={el.companyName || ""}
@@ -31,6 +32,7 @@ class JobExperience extends Component {
         <div className="inputContainer">
           <label htmlFor="jobTitle">Job Title</label>
           <input
+            className="input"
             id="jobTitle"
             onChange={this.handleChange.bind(this, i)}
             value={el.jobTitle || ""}
@@ -40,6 +42,7 @@ class JobExperience extends Component {
         <div className="inputContainer">
           <label htmlFor="startDate">Start Date</label>
           <input
+            className="input"
             id="startDate"
             type="date"
             onChange={this.handleChange.bind(this, i)}
@@ -49,6 +52,7 @@ class JobExperience extends Component {
         <div className="inputContainer">
           <label htmlFor="endDate">End Date</label>
           <input
+            className="input"
             id="endDate"
             type="date"
             onChange={this.handleChange.bind(this, i)}
