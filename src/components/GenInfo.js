@@ -23,6 +23,7 @@ class GenInfo extends Component {
         <div className="inputContainer">
           <label htmlFor="firstName">First Name</label>
           <input
+            autoFocus
             className="input"
             id="firstName"
             type="text"

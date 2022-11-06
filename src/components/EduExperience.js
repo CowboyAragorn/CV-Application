@@ -22,6 +22,7 @@ class EduExperience extends Component {
         <div className="inputContainer">
           <label htmlFor="schoolName">School Name </label>
           <input
+            autoFocus
             className="input"
             name="schoolName"
             id="schoolName"

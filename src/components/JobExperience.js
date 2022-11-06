@@ -22,6 +22,7 @@ class JobExperience extends Component {
         <div className="inputContainer">
           <label htmlFor="companyName">Company Name</label>
           <input
+            autoFocus
             className="input"
             id="companyName"
             type="text"
