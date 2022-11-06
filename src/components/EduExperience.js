@@ -102,7 +102,11 @@ class EduExperience extends Component {
       <>
         <h2>Education Experience</h2>
         {this.createUI()}
-        <button type="button" onClick={this.addNewInputs}>
+        <button
+          type="button"
+          className="addMoreBtn"
+          onClick={this.addNewInputs}
+        >
           Add Education Experience
         </button>
         <br></br>

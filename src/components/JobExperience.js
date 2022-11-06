@@ -115,7 +115,11 @@ class JobExperience extends Component {
       <>
         <h2>Work Experience</h2>
         {this.createUI()}
-        <button type="button" onClick={this.addNewInputs}>
+        <button
+          type="button"
+          className="addMoreBtn"
+          onClick={this.addNewInputs}
+        >
           Add Work Experience
         </button>
         <br></br>

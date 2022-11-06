@@ -14,7 +14,9 @@ class App extends Component {
           <EduExperience />
           <JobExperience />
           <br></br>
-          <button type="submit">Submit CV</button>
+          <button type="submit" id="submitBtn">
+            Submit CV
+          </button>
         </form>
       </>
     );
