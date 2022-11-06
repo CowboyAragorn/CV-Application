@@ -101,7 +101,7 @@ class EduExperience extends Component {
   render() {
     return (
       <>
-        <h2>Education Experience</h2>
+        <h2 className="inputHeader">Education Experience</h2>
         {this.createUI()}
         <button
           type="button"

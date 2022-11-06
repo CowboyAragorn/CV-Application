@@ -72,7 +72,7 @@ class GenInfo extends Component {
   render() {
     return (
       <>
-        <h2>Personal Information</h2>
+        <h2 className="inputHeader">Personal Information</h2>
         {this.createUI()}
       </>
     );

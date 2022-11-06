@@ -9,7 +9,7 @@ class App extends Component {
     return (
       <>
         <form>
-          <h1>Resume Creator</h1>
+          <h1 id="pageHeader">Resume Creator</h1>
           <GenInfo />
           <EduExperience />
           <JobExperience />

@@ -114,7 +114,7 @@ class JobExperience extends Component {
   render() {
     return (
       <>
-        <h2>Work Experience</h2>
+        <h2 className="inputHeader">Work Experience</h2>
         {this.createUI()}
         <button
           type="button"
